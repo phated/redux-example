@@ -1,0 +1,37 @@
+{
+  "name": "redux-example",
+  "version": "1.0.0",
+  "description": "Just trying to solve some of my problems with flux using redux",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server"
+  },
+  "author": "Blaine Bublitz <blaine@iceddev.com> (http://iceddev.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^0.13.3",
+    "redux": "^0.12.0",
+    "redux-promise": "^0.4.0",
+    "sovereign": "^0.1.1",
+    "when": "^3.7.3"
+  },
+  "devDependencies": {
+    "babel": "^5.6.14",
+    "babel-core": "^5.6.15",
+    "babel-loader": "^5.2.2",
+    "eslint": "^0.24.0",
+    "eslint-plugin-react": "^2.6.4",
+    "node-libs-browser": "^0.5.2",
+    "webpack": "^1.10.0",
+    "webpack-dev-server": "^1.10.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phated/redux-example.git"
+  },
+  "bugs": {
+    "url": "https://github.com/phated/redux-example/issues"
+  },
+  "homepage": "https://github.com/phated/redux-example#readme"
+}
