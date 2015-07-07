@@ -31,6 +31,14 @@ const View = createContainer(require('./views/index'), {
     };
   },
 
+  listen(store, onChange){
+    return store.subscribe(onChange);
+  },
+
+  unlisten(store, onChange, unsubscribe){
+    unsubscribe();
+  },
+
   getPropsFromStores(){
     const state = redux.getState();
 

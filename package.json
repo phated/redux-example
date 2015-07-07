@@ -13,7 +13,7 @@
     "react": "^0.13.3",
     "redux": "^0.12.0",
     "redux-promise": "^0.4.0",
-    "sovereign": "^0.1.1",
+    "sovereign": "^0.2.0",
     "when": "^3.7.3"
   },
   "devDependencies": {
