@@ -11,8 +11,8 @@
   "license": "MIT",
   "dependencies": {
     "react": "^0.13.3",
-    "redux": "^0.12.0",
-    "redux-promise": "^0.4.0",
+    "redux": "^1.0.0-rc",
+    "redux-promise": "acdlite/redux-promise",
     "sovereign": "^0.2.0",
     "when": "^3.7.3"
   },

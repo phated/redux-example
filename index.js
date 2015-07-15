@@ -2,19 +2,19 @@
 
 const sequence = require('when/sequence');
 const React = require('react');
-const { createRedux, createDispatcher, composeStores } = require('redux');
+const { createStore, combineReducers, applyMiddleware } = require('redux');
 const { createContainer } = require('sovereign');
 const reduxPromise = require('redux-promise');
 
-const stores = require('./stores');
+const reducers = require('./reducers');
 
-const store = composeStores(stores);
+const reducer = combineReducers(reducers);
 
 const middleware = [reduxPromise];
 
-const dispatcher = createDispatcher(store, middleware);
+const finalCreateStore = applyMiddleware(...middleware)(createStore);
 
-const redux = createRedux(dispatcher);
+const store = finalCreateStore(reducer);
 
 const container = document.createElement('div');
 
@@ -27,7 +27,7 @@ const log = require('./actions/log');
 const View = createContainer(require('./views/index'), {
   getStores(){
     return {
-      redux
+      store
     };
   },
 
@@ -40,7 +40,7 @@ const View = createContainer(require('./views/index'), {
   },
 
   getPropsFromStores(){
-    const state = redux.getState();
+    const state = store.getState();
 
     return {
       cwd: state.directory.cwd,
@@ -52,9 +52,9 @@ const View = createContainer(require('./views/index'), {
 });
 
 sequence([
-  () => redux.dispatch(changeDirectory('/blah')),
-  () => redux.dispatch(loadFile('test')),
-  () => redux.dispatch(log())
+  () => store.dispatch(changeDirectory('/blah')),
+  () => store.dispatch(loadFile('test')),
+  () => store.dispatch(log())
 ]);
 
 React.render(<View />, container);
